@@ -49,3 +49,14 @@ class Pago:
     def procesar(self):
         print(f"Pago de {self.cantidad}€ por el pedido de {self.pedido.cliente} realizado con éxito.")
         self.pedido.completar_pedido()
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    inventario = Inventario()
+    pizza_margarita = Pizza("Margarita", ["queso", "tomate", "harina"])
+    pedido1 = Pedido("Juan", [pizza_margarita])
+    
+    pedido1.procesar_pedido()
+    if pizza_margarita.preparar(inventario):
+        pago1 = Pago(pedido1, 12)
+        pago1.procesar()
