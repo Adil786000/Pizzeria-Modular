@@ -39,3 +39,13 @@ class Inventario:
     def utilizar_ingrediente(self, ingrediente):
         if self.verificar_ingrediente(ingrediente):
             self.ingredientes[ingrediente] -= 1
+
+# Módulo de pagos
+class Pago:
+    def __init__(self, pedido, cantidad):
+        self.pedido = pedido
+        self.cantidad = cantidad
+    
+    def procesar(self):
+        print(f"Pago de {self.cantidad}€ por el pedido de {self.pedido.cliente} realizado con éxito.")
+        self.pedido.completar_pedido()
